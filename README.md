@@ -1,10 +1,10 @@
 This a small tool for translating. Base on the command line and youdao API.
-worl or sentence are both excepted.
+Word or sentence are both excepted.
 English or Chinese are both excepted.
 
 usage example:
 
-./tranit cool
+./tranit.py cool
 
 result===>
 
@@ -25,7 +25,7 @@ result===>
 #3Tumble Cool:
 #用烘干机低温烘干; 打冷风; 用烘焙机低温烘焙
 
-./tranit 天气
+./tranit.py 天气
 
 result===>
 
