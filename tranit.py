@@ -46,6 +46,7 @@ if __name__ == '__main__':
 
 	querry = " ".join(sys.argv[1:])
 	youdao = "http://fanyi.youdao.com/openapi.do?keyfrom=helloword159&key=540616135&type=data&doctype=json&version=1.1&q={}".format(querry)
+	print querry
 
 	try:
 		res = requests.get(youdao);
@@ -56,14 +57,27 @@ if __name__ == '__main__':
 	jsondata = res.text
 	results = json.loads(jsondata)
 
+	#translation
 	if results['translation'][0]:
 		print results['translation'][0]
 		print '-'*20
+
+	#basic
 	try:
-		for explain in   results.get('basic').get('explains'):
+		basic = results.get('basic')
+		print basic.get('phonetic')
+		print 'us: ' + basic.get('us-phonetic')
+		print 'uk: ' + basic.get('uk-phonetic')
+		print '-'*20
+
+		for explain in basic.get('explains'):
 			print explain
 		print '-'*20
-	
+	except Exception:
+		pass
+
+	#from web
+	try:
 		webs= results.get("web")
 		print "From web:"
 		for each in webs:
